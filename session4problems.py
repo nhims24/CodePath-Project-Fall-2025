@@ -108,3 +108,21 @@ def frequency_greater_than_n(nums, n):
 nums = [1,1,2,3,3,3,4]
 result = {"1": 2, "3": 3}
     
+
+def do_now(nums, target):
+    key = {}
+
+    for i in nums:
+        if i in key:
+            key[i] += 1
+        else:
+            key[i] = 1
+    
+    result = {}
+    for k,v in key.items():
+        for k2,v2 in key.items():
+            if k != k2 and k + k2== target:
+                result[v] = k
+    
+    return result
+
